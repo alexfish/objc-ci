@@ -7,19 +7,16 @@ Vagrant.configure("2") do |config|
   env  = ENV['PUPPET_ENV']
   env ||= 'dev'
 
-  config.vm.box = 'george' 
+  config.vm.box = 'osx'
   config.vm.network :public_network, :bridge => bridge
   config.vm.hostname = 'objc-ci.local'
 
-  config.vm.provider :virtualbox do |vb|
-    vb.customize ['modifyvm', :id, '--memory', 2048, '--cpus', 2]
-  end
+  config.ssh.forward_agent = true
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'manifests'
     puppet.manifest_file  = 'default.pp'
     puppet.options = '--modulepath=/vagrant/modules:/vagrant/static-modules --hiera_config /vagrant/hiera_vagrant.yaml --environment=#{env}'
-
   end
 
 end

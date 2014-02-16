@@ -1,0 +1,18 @@
+GIT
+  remote: git://github.com/alup/puppet-rbenv.git
+  ref: master
+  sha: baf789ece015e14e61785446dd0a3e4cf9503583
+  specs:
+    rbenv (1.2.0)
+
+GIT
+  remote: git://github.com/kelseyhightower/puppet-homebrew.git
+  ref: master
+  sha: 118e32a4dd7e4c7284aee474397c9a65739ceff6
+  specs:
+    homebrew (0.0.1)
+
+DEPENDENCIES
+  homebrew (>= 0)
+  rbenv (>= 0)
+
